@@ -5,7 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-              
+               sh '''
+                ls -ltr
+                pwd
+                echo "Hello from GitHub Push webhook event"
+              '''
             }
         }
         stage('Test') {
@@ -16,11 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                 sh '''
-                ls -ltr
-                pwd
-                echo "Hello script"
-              '''
+             
             }
     
         }
